@@ -10,17 +10,17 @@ const categoryMeta: Record<
 > = {
   household: {
     label: 'Household expenses',
-    tone: 'bg-[rgba(47,106,74,0.12)] text-[var(--palm)]',
+    tone: 'bg-[rgba(47,106,74,0.12)] text-(--palm)',
     helper: 'Groceries, utilities, childcare, transport, subscriptions.',
   },
   mortgage: {
     label: 'Mortgage',
-    tone: 'bg-[rgba(79,184,178,0.18)] text-[var(--lagoon-deep)]',
+    tone: 'bg-[rgba(79,184,178,0.18)] text-(--lagoon-deep)',
     helper: 'Home loan principal + interest + insurance line items.',
   },
   loan: {
     label: 'Loans',
-    tone: 'bg-[rgba(50,143,151,0.18)] text-[var(--lagoon-deep)]',
+    tone: 'bg-[rgba(50,143,151,0.18)] text-(--lagoon-deep)',
     helper: 'Auto loans, student loans, personal loans.',
   },
   'credit-card': {
@@ -144,21 +144,21 @@ function App() {
     <main className="page-wrap px-4 pb-12 pt-8 sm:pb-20 sm:pt-12">
       <section className="island-shell rise-in rounded-3xl p-6 sm:p-8">
         <p className="island-kicker mb-3">Monthly planner</p>
-        <h1 className="display-title m-0 text-4xl font-bold text-[var(--sea-ink)] sm:text-5xl">
+        <h1 className="display-title m-0 text-4xl font-bold text-(--sea-ink) sm:text-5xl">
           Household Budget Tracker
         </h1>
-        <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
+        <p className="mt-4 max-w-3xl text-base leading-8 text-(--sea-ink-soft) sm:text-lg">
           Plan monthly cashflow across household expenses, mortgage, loans, and
           credit card fees in one place.
         </p>
 
         <div className="mt-7 grid gap-3 sm:grid-cols-3">
-          <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-            <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Monthly income</p>
-            <p className="mt-2 text-2xl font-semibold text-[var(--sea-ink)]">
+          <article className="feature-card rounded-2xl border border-(--line) p-4">
+            <p className="m-0 text-sm text-(--sea-ink-soft)">Monthly income</p>
+            <p className="mt-2 text-2xl font-semibold text-(--sea-ink)">
               {currency.format(income)}
             </p>
-            <label className="mt-3 block text-xs uppercase tracking-[0.12em] text-[var(--sea-ink-soft)]">
+            <label className="mt-3 block text-xs uppercase tracking-[0.12em] text-(--sea-ink-soft)">
               Update income
               <input
                 type="number"
@@ -166,31 +166,31 @@ function App() {
                 step={50}
                 value={income}
                 onChange={(event) => setIncome(Number(event.target.value) || 0)}
-                className="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-3 py-2 text-base text-[var(--sea-ink)]"
+                className="mt-2 w-full rounded-xl border border-(--line) bg-(--surface-strong) px-3 py-2 text-base text-(--sea-ink)"
               />
             </label>
           </article>
 
-          <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-            <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Planned expenses</p>
-            <p className="mt-2 text-2xl font-semibold text-[var(--sea-ink)]">
+          <article className="feature-card rounded-2xl border border-(--line) p-4">
+            <p className="m-0 text-sm text-(--sea-ink-soft)">Planned expenses</p>
+            <p className="mt-2 text-2xl font-semibold text-(--sea-ink)">
               {currency.format(monthlyExpenses)}
             </p>
-            <p className="mt-4 text-sm leading-6 text-[var(--sea-ink-soft)]">
+            <p className="mt-4 text-sm leading-6 text-(--sea-ink-soft)">
               Includes all core categories and debt minimum payments.
             </p>
           </article>
 
-          <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-            <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Monthly balance</p>
+          <article className="feature-card rounded-2xl border border-(--line) p-4">
+            <p className="m-0 text-sm text-(--sea-ink-soft)">Monthly balance</p>
             <p
               className={`mt-2 text-2xl font-semibold ${
-                netBalance >= 0 ? 'text-[var(--palm)]' : 'text-[color:#9a3a2e]'
+                netBalance >= 0 ? 'text-(--palm)' : 'text-[color:#9a3a2e]'
               }`}
             >
               {currency.format(netBalance)}
             </p>
-            <p className="mt-4 text-sm leading-6 text-[var(--sea-ink-soft)]">
+            <p className="mt-4 text-sm leading-6 text-(--sea-ink-soft)">
               {netBalance >= 0
                 ? 'Positive cashflow available for savings goals.'
                 : 'Spending is above income. Trim or refinance debt lines.'}
@@ -202,28 +202,28 @@ function App() {
       <section className="mt-8 grid gap-6 lg:grid-cols-[1.45fr_1fr]">
         <article className="island-shell rounded-3xl p-6 sm:p-8">
           <div className="mb-5 flex items-center justify-between gap-3">
-            <h2 className="display-title m-0 text-2xl font-semibold text-[var(--sea-ink)]">
+            <h2 className="display-title m-0 text-2xl font-semibold text-(--sea-ink)">
               Monthly Budget Items
             </h2>
-            <span className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--sea-ink-soft)]">
+            <span className="rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-(--sea-ink-soft)">
               {items.length} items
             </span>
           </div>
 
-          <form onSubmit={addBudgetItem} className="grid gap-3 rounded-2xl border border-[var(--line)] p-4">
-            <label className="text-sm font-semibold text-[var(--sea-ink)]">
+          <form onSubmit={addBudgetItem} className="grid gap-3 rounded-2xl border border-(--line) p-4">
+            <label className="text-sm font-semibold text-(--sea-ink)">
               Item label
               <input
                 type="text"
                 placeholder="e.g. Internet bill"
                 value={draftName}
                 onChange={(event) => setDraftName(event.target.value)}
-                className="mt-1.5 w-full rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-3 py-2 text-base text-[var(--sea-ink)]"
+                className="mt-1.5 w-full rounded-xl border border-(--line) bg-(--surface-strong) px-3 py-2 text-base text-(--sea-ink)"
               />
             </label>
 
             <div className="grid gap-3 sm:grid-cols-2">
-              <label className="text-sm font-semibold text-[var(--sea-ink)]">
+              <label className="text-sm font-semibold text-(--sea-ink)">
                 Amount (monthly)
                 <input
                   type="number"
@@ -231,16 +231,16 @@ function App() {
                   step={1}
                   value={draftAmount}
                   onChange={(event) => setDraftAmount(event.target.value)}
-                  className="mt-1.5 w-full rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-3 py-2 text-base text-[var(--sea-ink)]"
+                  className="mt-1.5 w-full rounded-xl border border-(--line) bg-(--surface-strong) px-3 py-2 text-base text-(--sea-ink)"
                 />
               </label>
 
-              <label className="text-sm font-semibold text-[var(--sea-ink)]">
+              <label className="text-sm font-semibold text-(--sea-ink)">
                 Category
                 <select
                   value={draftCategory}
                   onChange={(event) => setDraftCategory(event.target.value as BudgetCategory)}
-                  className="mt-1.5 w-full rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-3 py-2 text-base text-[var(--sea-ink)]"
+                  className="mt-1.5 w-full rounded-xl border border-(--line) bg-(--surface-strong) px-3 py-2 text-base text-(--sea-ink)"
                 >
                   {Object.entries(categoryMeta).map(([value, meta]) => (
                     <option key={value} value={value}>
@@ -253,7 +253,7 @@ function App() {
 
             <button
               type="submit"
-              className="mt-1 inline-flex w-full items-center justify-center rounded-xl border border-[var(--lagoon-deep)] bg-[var(--lagoon)] px-3 py-2.5 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(50,143,151,0.28)] hover:bg-[var(--lagoon-deep)] sm:w-auto"
+              className="mt-1 inline-flex w-full items-center justify-center rounded-xl border border-(--lagoon-deep) bg-(--lagoon) px-3 py-2.5 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(50,143,151,0.28)] hover:bg-(--lagoon-deep) sm:w-auto"
             >
               Add budget item
             </button>
@@ -263,23 +263,23 @@ function App() {
             {items.map((item) => (
               <li
                 key={item.id}
-                className="feature-card flex list-none items-center justify-between gap-3 rounded-2xl border border-[var(--line)] p-4"
+                className="feature-card flex list-none items-center justify-between gap-3 rounded-2xl border border-(--line) p-4"
               >
                 <div>
-                  <p className="m-0 font-semibold text-[var(--sea-ink)]">{item.name}</p>
+                  <p className="m-0 font-semibold text-(--sea-ink)">{item.name}</p>
                   <div className="mt-1 flex items-center gap-2">
                     <span
                       className={`rounded-full px-2 py-0.5 text-xs font-semibold ${categoryMeta[item.category].tone}`}
                     >
                       {categoryMeta[item.category].label}
                     </span>
-                    <span className="text-xs text-[var(--sea-ink-soft)]">
+                    <span className="text-xs text-(--sea-ink-soft)">
                       {categoryMeta[item.category].helper}
                     </span>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="m-0 text-base font-semibold text-[var(--sea-ink)]">
+                  <p className="m-0 text-base font-semibold text-(--sea-ink)">
                     {currency.format(item.amount)}
                   </p>
                   <button
@@ -296,29 +296,29 @@ function App() {
         </article>
 
         <aside className="island-shell rounded-3xl p-6 sm:p-8">
-          <h2 className="display-title m-0 text-2xl font-semibold text-[var(--sea-ink)]">
+          <h2 className="display-title m-0 text-2xl font-semibold text-(--sea-ink)">
             Debt Snapshot
           </h2>
-          <p className="mt-2 text-sm leading-6 text-[var(--sea-ink-soft)]">
+          <p className="mt-2 text-sm leading-6 text-(--sea-ink-soft)">
             Mortgage, loan, and credit card balances with payment pressure.
           </p>
 
           <div className="mt-5 grid gap-3">
-            <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-              <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Total principal</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--sea-ink)]">
+            <article className="feature-card rounded-2xl border border-(--line) p-4">
+              <p className="m-0 text-sm text-(--sea-ink-soft)">Total principal</p>
+              <p className="mt-2 text-xl font-semibold text-(--sea-ink)">
                 {currency.format(debtSnapshot.totalPrincipal)}
               </p>
             </article>
-            <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-              <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Total minimum payment</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--sea-ink)]">
+            <article className="feature-card rounded-2xl border border-(--line) p-4">
+              <p className="m-0 text-sm text-(--sea-ink-soft)">Total minimum payment</p>
+              <p className="mt-2 text-xl font-semibold text-(--sea-ink)">
                 {currency.format(debtSnapshot.totalMinimum)}
               </p>
             </article>
-            <article className="feature-card rounded-2xl border border-[var(--line)] p-4">
-              <p className="m-0 text-sm text-[var(--sea-ink-soft)]">Weighted APR</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--sea-ink)]">
+            <article className="feature-card rounded-2xl border border-(--line) p-4">
+              <p className="m-0 text-sm text-(--sea-ink-soft)">Weighted APR</p>
+              <p className="mt-2 text-xl font-semibold text-(--sea-ink)">
                 {debtSnapshot.weightedApr.toFixed(2)}%
               </p>
             </article>
@@ -328,13 +328,13 @@ function App() {
             {seedDebts.map((debt) => (
               <li
                 key={debt.id}
-                className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-4 list-none"
+                className="rounded-2xl border border-(--line) bg-(--surface) p-4 list-none"
               >
-                <p className="m-0 font-semibold text-[var(--sea-ink)]">{debt.name}</p>
-                <p className="mt-1 text-sm text-[var(--sea-ink-soft)]">
+                <p className="m-0 font-semibold text-(--sea-ink)">{debt.name}</p>
+                <p className="mt-1 text-sm text-(--sea-ink-soft)">
                   Principal {currency.format(debt.principal)}
                 </p>
-                <p className="mt-1 text-sm text-[var(--sea-ink-soft)]">
+                <p className="mt-1 text-sm text-(--sea-ink-soft)">
                   Min payment {currency.format(debt.minimumPayment)} at {debt.annualRate}% APR
                 </p>
               </li>
